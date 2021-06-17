@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 574d03bc053ed0d6d713a4abf78aad58b8be4ec10fd3df9d33135e4fd9eb6b8c
+-- hash: e82e70f47ecc58f81664d451a66538e7406fc504f3727e8949f3cf2745eb9f18
 
 name:           ASimpleHaskellWebApp
 version:        0.1.0.0
@@ -34,6 +34,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , yesod
   default-language: Haskell2010
 
 executable ASimpleHaskellWebApp-exe
@@ -46,6 +47,7 @@ executable ASimpleHaskellWebApp-exe
   build-depends:
       ASimpleHaskellWebApp
     , base >=4.7 && <5
+    , yesod
   default-language: Haskell2010
 
 test-suite ASimpleHaskellWebApp-test
@@ -59,4 +61,5 @@ test-suite ASimpleHaskellWebApp-test
   build-depends:
       ASimpleHaskellWebApp
     , base >=4.7 && <5
+    , yesod
   default-language: Haskell2010
