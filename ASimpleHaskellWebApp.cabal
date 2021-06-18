@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e82e70f47ecc58f81664d451a66538e7406fc504f3727e8949f3cf2745eb9f18
+-- hash: 257732904c3ee476c23fc7dab41aa43c87cb7f424f7b7ac299672438574f6668
 
 name:           ASimpleHaskellWebApp
 version:        0.1.0.0
@@ -28,6 +28,7 @@ source-repository head
 library
   exposed-modules:
       Lib
+      Server
   other-modules:
       Paths_ASimpleHaskellWebApp
   hs-source-dirs:
