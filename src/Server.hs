@@ -10,12 +10,16 @@ import Control.Applicative
 import Data.Text
 import Yesod
 import Yesod.Form.Jquery
+import Yesod.Static
 
 
-data HelloWorld = HelloWorld
+data HelloWorld = HelloWorld { getStatic :: Static }
+
+staticFiles "static"
 
 mkYesod "HelloWorld" [parseRoutes|
-/ HomeR GET POST
+/        HomeR    GET POST
+/static  StaticR  Static getStatic
 |]
 
 instance Yesod HelloWorld
@@ -40,6 +44,7 @@ getHomeR :: Handler Html
 getHomeR = do
     (formWidget, enctype) <- generateFormPost userForm
     defaultLayout $ do
+        addStylesheet (StaticR css_main_css)
         [whamlet|
             <p> Hello world!
             <form method=post action=@{HomeR} enctype=#{enctype}>
@@ -53,4 +58,6 @@ postHomeR = defaultLayout [whamlet|
 |]
 
 serve :: IO ()
-serve = warp 3000 HelloWorld
+serve = do
+    static <- staticDevel "static"
+    warp 3000 $ HelloWorld { getStatic = static }

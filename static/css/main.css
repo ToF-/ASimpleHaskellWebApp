@@ -1,0 +1,17 @@
+body {
+    font-size: 20px;
+    font-family: "arial";
+    color: navyblue;
+}
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 100px;
+    text-align: right;
+}
+input {
+  display: inline-block;
+  margin-left:20px;
+  float: left;
+}
