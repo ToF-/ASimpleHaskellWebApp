@@ -3,6 +3,7 @@
 {-# LANGUAGE QuasiQuotes           #-}
 {-# LANGUAGE TemplateHaskell       #-}
 {-# LANGUAGE TypeFamilies          #-}
+-- {-# OPTIONS_GHC -ddump-splices     #-}
 
 module Server where
 
@@ -77,8 +78,10 @@ postHomeR = do
           liftIO $ print ((userId user) <> " (pseudo) logged in")
     redirect HomeR
 
+staticFilesPath = "static"
+
 serve :: IO ()
 serve = do
-    static <- staticDevel "static"
+    static <- staticDevel staticFilesPath  -- will check for modification each time a request is made on static files
     ref <- liftIO $ newIORef Nothing
     warp 3000 $ HelloWorld { getStatic = static, userRef = ref }

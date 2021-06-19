@@ -32,9 +32,9 @@ library:
   source-dirs: src
 
 executables:
-  ASimpleHaskellWebApp-exe:
+  simple-server-exe:
     main:                Main.hs
-    source-dirs:         app
+    source-dirs:         app/server
     ghc-options:
     - -threaded
     - -rtsopts
