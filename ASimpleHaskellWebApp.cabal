@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a55a56cc4eeb86988960b50970d75ccce3c745e7cce4f6b5964fda787bb2d45b
+-- hash: 169103889405efa7f3ec582b5051416071b70ca6a07a015114abee49f21a0866
 
 name:           ASimpleHaskellWebApp
 version:        0.1.0.0
@@ -34,7 +34,28 @@ library
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , text
+    , time
+    , yesod
+    , yesod-form
+    , yesod-static
+  default-language: Haskell2010
+
+executable create-user-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_ASimpleHaskellWebApp
+  hs-source-dirs:
+      app/createuser
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ASimpleHaskellWebApp
+    , aeson
+    , base >=4.7 && <5
+    , bytestring
     , text
     , time
     , yesod
@@ -51,7 +72,9 @@ executable simple-server-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       ASimpleHaskellWebApp
+    , aeson
     , base >=4.7 && <5
+    , bytestring
     , text
     , time
     , yesod
@@ -69,7 +92,9 @@ test-suite ASimpleHaskellWebApp-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       ASimpleHaskellWebApp
+    , aeson
     , base >=4.7 && <5
+    , bytestring
     , text
     , time
     , yesod
